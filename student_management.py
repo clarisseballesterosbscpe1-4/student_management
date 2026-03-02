@@ -1,18 +1,15 @@
 import os
 import platform
 
-global listStd
-listStd = ["yugesh", "kishor", "gajen", "Gopi"]
+global list
+student_list = ["Clarisse", "Althea", "Eloisa", "Marial"]
 
-
-def manageStudent():
+def manage_student():
 
     x = "#" * 30
     y = "=" * 28
     global bye
-    bye = "\n {}\n# {} #\n# ===> Brought To You By <===  #\n# ===> code-projects.org <===  #\n# {} #\n {}".format(x, y,
-                                                                                                                  y,
-                                                                                                                  x)
+    bye = " ===> Brought To You By <=== ===> code-projects.org <=== ".format(x, y, y, y)
 
     print(""" 
 
@@ -72,7 +69,7 @@ Enter 4 : To Remove Student
     elif (userInput < 1 or userInput > 4):  # Validating User Option
         print("Please Enter Valid Option")  # Error Message
 
-manageStudent()
+manage_student()
 
 
 def runAgain():  # Making Runable Problem1353
