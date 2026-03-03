@@ -1,7 +1,7 @@
 import os
 import platform
 
-global list
+global student_list
 student_list = ["Clarisse", "Althea", "Eloisa", "Marial"]
 
 def manage_student():
@@ -9,7 +9,7 @@ def manage_student():
     x = "#" * 30
     y = "=" * 28
     global bye
-    bye = " ===> Brought To You By <=== ===> code-projects.org <=== ".format(x, y, y, y)
+    bye = "\n {}\n# {} #\n# ===> Brought To You By <===  #\n# ===> code-projects.org <===  #\n# {} #\n {}".format(x, y, y, x)
 
     print(""" 
 
@@ -26,63 +26,60 @@ Enter 4 : To Remove Student
 
 		""")
 
-    try:  # Using Exceptions For Validation
-        userInput = int(input("Please Select An Above Option: "))
+    try:
+        user_input = int(input("Please Select An Above Option: "))
     except ValueError:
         exit("\nHy! That's Not A Number")
     else:
         print("\n")
 
-
-    if (userInput == 1):
+    if (user_input == 1):
         print("List Students\n")
-        for students in listStd:
+        for students in student_list:
             print("=> {}".format(students))
 
-    elif (userInput == 2):
-        newStd = input("Enter New Student: ")
-        if (newStd in listStd):
-            print("\nThis Student {} Already In The Database".format(newStd))
+    elif (user_input == 2):
+        new_student = input("Enter New Student: ")
+        if (new_student in student_list):
+            print("\nThis Student {} Already In The Database".format(new_student))
         else:
-            listStd.append(newStd)
-            print("\n=> New Student {} Successfully Add \n".format(newStd))
-            for students in listStd:
+            student_list.append(new_student)
+            print("\n=> New Student {} Successfully Add \n".format(new_student))
+            for students in student_list:
                 print("=> {}".format(students))
 
-    elif (userInput == 3):
-        srcStd = input("Enter Student Name To Search: ")
-        if (srcStd in listStd):
-            print("\n=> Record Found Of Student {}".format(srcStd))
+    elif (user_input == 3):
+        search_student = input("Enter Student Name To Search: ")
+        if (search_student in student_list):
+            print("\n=> Record Found Of Student {}".format(search_student))
         else:
-            print("\n=> No Record Found Of Student {}".format(srcStd))
+            print("\n=> No Record Found Of Student {}".format(search_student))
 
-    elif (userInput == 4):
-        rmStd = input("Enter Student Name To Remove: ")
-        if (rmStd in listStd):
-            listStd.remove(rmStd)
-            print("\n=> Student {} Successfully Deleted \n".format(rmStd))
-            for students in listStd:
+    elif (user_input == 4):
+        remove_student = input("Enter Student Name To Remove: ")
+        if (remove_student in student_list):
+            student_list.remove(remove_student)
+            print("\n=> Student {} Successfully Deleted \n".format(remove_student))
+            for students in student_list:
                 print("=> {}".format(students))
         else:
-            print("\n=> No Record Found of This Student {}".format(rmStd))
+            print("\n=> No Record Found of This Student {}".format(remove_student))
 
-    elif (userInput < 1 or userInput > 4):  # Validating User Option
-        print("Please Enter Valid Option")  # Error Message
+    elif (user_input < 1 or user_input > 4):
+        print("Please Enter Valid Option")
 
 manage_student()
 
-
-def runAgain():  # Making Runable Problem1353
-    runAgn = input("\nwant To Run Again Y/n: ")
-    if (runAgn.lower() == 'y'):
-        if (platform.system() == "Windows"):  # Checking User OS For Clearing The Screen
+def run_again():  # Making Runable Problem1353
+    run_again = input("\nwant To Run Again Y/n: ")
+    if (run_again.lower() == 'y'):
+        if (platform.system() == "Windows"):
             print(os.system('cls'))
         else:
             print(os.system('clear'))
-        manageStudent()
-        runAgain()
+        manage_student()
+        run_again()
     else:
-        quit(bye)  # Print GoodBye Message And Exit The Program
+        quit(bye) 
 
-
-runAgain()
+run_again()
