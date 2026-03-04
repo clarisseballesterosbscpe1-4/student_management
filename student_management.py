@@ -78,7 +78,7 @@ def run_again():  # Making Runable Problem1353
         else:
             print(os.system('clear'))
         manage_student()
-        run_again()
+
     else:
         quit(bye) 
 
